@@ -1,384 +1,95 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가양 셔츠룸 모음 블로그 | 프리미엄 정보</title>
-    <meta name="description" content="가양 셔츠룸 모음 블로그 – 업소 선택을 위한 데이터 기반 분석, 실제 이용 통계, 업계 트렌드를 전문가 관점에서 제공합니다.">
-    <meta name="keywords" content="가양 셔츠룸, 가양 셔츠룸 모음, 가양 셔츠룸 블로그, 가양 유흥 정보">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-raw-concrete">
-    <link rel="canonical" href="https://t3b05-gy-shirts-list-2.vercel.app/blog">
-    <meta property="og:title" content="가양 셔츠룸 모음 블로그 – 프리미엄 정보">
-    <meta property="og:description" content="가양 셔츠룸 모음 블로그 – 업소 선택을 위한 데이터 기반 분석, 실제 이용 통계, 업계 트렌드를 전문가 관점에서 제공합니다.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://t3b05-gy-shirts-list-2.vercel.app/blog">
-    <meta name="twitter:card" content="summary_large_image">
-    <style>
-        /* Brutalist Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-            line-height: 1.7;
-            overflow-x: hidden;
-            position: relative;
-        }
-        img, svg {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        a {
-            color: #ff5e5e;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-        a:hover {
-            color: #ff8787;
-            text-decoration: underline;
-        }
-        /* Raw Concrete Texture (grainy) */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath d='M1 3h1v1H1V3zm2-2h1v1H3V1z' fill='%23ffffff' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 9999;
-        }
-        /* Typography Brutalism */
-        h1, h2, h3, h4 {
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            color: #ffffff;
-        }
-        h1 {
-            font-size: clamp(2.2rem, 8vw, 4rem);
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            border-left: 6px solid #ff5e5e;
-            padding-left: 1rem;
-        }
-        h2 {
-            font-size: clamp(1.6rem, 5vw, 2.5rem);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #ff5e5e;
-            padding-bottom: 0.4rem;
-        }
-        h3 {
-            font-size: clamp(1.3rem, 4vw, 1.8rem);
-            margin-top: 1.8rem;
-            margin-bottom: 0.8rem;
-        }
-        p {
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        /* Skip to content */
-        .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            background: #ff5e5e;
-            color: #000;
-            padding: 0.5rem 1rem;
-            font-weight: 700;
-            z-index: 10000;
-            transition: top 0.2s;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: #111;
-            border-bottom: 3px solid #ff5e5e;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo a {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .logo a:hover {
-            color: #ff5e5e;
-            text-decoration: none;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        nav a {
-            color: #ccc;
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 0.3rem 0;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        nav a:hover {
-            color: #fff;
-            border-bottom-color: #ff5e5e;
-            text-decoration: none;
-        }
-        /* Hamburger menu (responsive) */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: #fff;
-            margin: 4px 0;
-            transition: all 0.3s ease;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background: #1a1a1a;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 1rem 0;
-                border-bottom: 3px solid #ff5e5e;
-            }
-            nav ul.show {
-                display: flex;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .header-inner {
-                flex-wrap: wrap;
-            }
-        }
-        /* Tel link */
-        .tel-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #ff5e5e;
-            color: #000 !important;
-            padding: 0.5rem 1.2rem;
-            font-weight: 800;
-            border-radius: 0;
-            transition: background 0.2s;
-        }
-        .tel-link:hover {
-            background: #ff8787;
-            text-decoration: none;
-        }
-
-        /* Main Content */
-        main {
-            padding: 3rem 0 4rem;
-        }
-        .blog-article {
-            background: #222;
-            padding: 2.5rem;
-            border-left: 4px solid #ff5e5e;
-            margin-bottom: 3rem;
-        }
-        .blog-article .meta {
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 0.8rem;
-        }
-        .blog-article .meta span {
-            margin-right: 2rem;
-        }
-        .blog-article blockquote {
-            border-left: 4px solid #ff5e5e;
-            padding-left: 1.2rem;
-            margin: 1.5rem 0;
-            color: #ccc;
-            font-style: italic;
-            background: #1e1e1e;
-        }
-        .blog-article ul, .blog-article ol {
-            margin: 1rem 0 1.5rem 1.5rem;
-        }
-        .blog-article li {
-            margin-bottom: 0.5rem;
-        }
-        .blog-article .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-        .blog-article .data-table th,
-        .blog-article .data-table td {
-            border: 1px solid #444;
-            padding: 0.7rem 1rem;
-            text-align: left;
-        }
-        .blog-article .data-table th {
-            background: #333;
-            color: #fff;
-            font-weight: 700;
-        }
-        .blog-article .data-table td {
-            background: #1e1e1e;
-        }
-        .blog-article .cta-box {
-            background: #111;
-            border: 2px dashed #ff5e5e;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        .blog-article .cta-box p {
-            margin-bottom: 0.5rem;
-        }
-
-        /* FAQ */
-        .faq-section {
-            margin-top: 3rem;
-        }
-        .faq-item {
-            border-bottom: 1px solid #333;
-            padding: 1.2rem 0;
-        }
-        .faq-question {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #ff5e5e;
-            cursor: pointer;
-            margin-bottom: 0.3rem;
-        }
-        .faq-answer {
-            color: #ccc;
-            margin-top: 0.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #111;
-            border-top: 3px solid #ff5e5e;
-            padding: 2rem 0;
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #ff5e5e;
-        }
-        footer a:hover {
-            color: #ff8787;
-        }
-
-        /* Utility */
-        .text-center {
-            text-align: center;
-        }
-        .mt-2 {
-            margin-top: 2rem;
-        }
-        .mb-2 {
-            margin-bottom: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>가양 셔츠룸 블로그 | 가양 셔츠룸 모음</title>
+  <meta name="description" content="가양 지역 셔츠룸을 찾는 분들을 위한 블로그 포스트. 다양한 상황별 셔츠룸 선택 팁과 방문 전 점검 리스트를 제공합니다.">
+  <meta name="keywords" content="가양, 셔츠룸, 블로그, 가양 셔츠룸 이용 팁, 가양 셔츠룸 선택 가이드">
+  <link rel="canonical" href="https://gayang-shirt-trend.program-school.online/blog.html">
+  <meta property="og:title" content="가양 셔츠룸 블로그 — 현장감 있는 이용 팁">
+  <meta property="og:description" content="가양 지역 셔츠룸을 찾는 분들을 위한 블로그 포스트. 다양한 상황별 셔츠룸 선택 팁과 방문 전 점검 리스트를 제공합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gayang-shirt-trend.program-school.online/blog.html">
+  <meta property="og:image" content="https://gayang-shirt-trend.program-school.online/og-image.jpg">
+  <style>
+    :root{--primary:#ff6f61;--bg:#fafafa;--text:#333;--accent:#0066ff;}
+    body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;}
+    a{color:var(--accent);text-decoration:none;}
+    header,nav,main,section,footer{display:block;padding:1rem;}
+    .q-grid-lgeg{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    .t-card-nvvp{background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    .t-card-nvvp h1{font-size:1.4rem;margin:0 0 .5rem;}
+    .t-card-nvvp p{margin:0 0 1rem;line-height:1.5;}
+    .v-nav-3ibi{background:var(--primary);color:#fff;}
+    .v-nav-3ibi ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;}
+    .v-nav-3ibi li{margin-right:1rem;}
+    .v-nav-3ibi a{color:#fff;padding:.5rem 0;display:block;}
+    .k-box-n591-toggle{cursor:pointer;}
+    @media (max-width:768px){
+      .v-nav-3ibi ul{flex-direction:column;}
+      .v-nav-3ibi li{margin-bottom:.5rem;}
+    }
+  </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">본문 바로가기</a>
+  <header class="v-nav-3ibi">
+    <nav class="v-nav-3ibi">
+      <ul>
+        <li><a href="/">홈</a></li>
+        <li><a href="/list">셔츠룸 리스트</a></li>
+        <li><a href="/guide">이용 가이드</a></li>
+        <li><a href="/blog">블로그</a></li>
+        <li><a href="/contact">문의</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <div class="container header-inner">
-            <div class="logo">
-                <a href="/" title="가양 셔츠룸 모음 홈">GY SHIRTS</a>
-            </div>
-            <button class="hamburger" aria-label="메뉴 열기" onclick="this.nextElementSibling.classList.toggle('show')">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav>
-                <ul>
-                    <li><a href="/">홈</a></li>
-                    <li><a href="/list">업소 목록</a></li>
-                    <li><a href="/blog" aria-current="page">블로그</a></li>
-                    <li><a href="/about">소개</a></li>
-                    <li><a href="tel:02-1234-5678" class="tel-link">📞 02-1234-5678</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <main>
+    <section class="t-card-nvvp">
+      <h1>가양 셔츠룸, 왜 블로그가 필요할까?</h1>
+      <p>가양은 요즘 핫한 지역이라 다양한 셔츠룸이 등장하고 있습니다. 하지만 선택 기준이 명확하지 않다 보니 처음 방문하시는 분들은 고민이 많죠. 이 블로그에서는 그런 고민을 덜어드리기 위해 현장 경험을 바탕으로 만든 체크리스트와 상황별 추천 포인트를 공유합니다.</p>
+      <p>친근한 톤으로 이야기를 풀어가면서도, 실제 현장에서 검증된 팁을 담았으니 읽는 내내 ‘이거 내 상황에 딱 맞네!’ 하고 고개를 끄덕이실 겁니다. 이제부터 가양 셔츠룸을 고를 때 꼭 확인해야 할 항목들을 차근차근 살펴보겠습니다.</p>
+    </section>
 
-    <main id="main-content">
-        <div class="container">
-            <article class="blog-article">
-                <header>
-                    <h1>가양 셔츠룸 모음 업소 선택 가이드: 데이터 기반 분석</h1>
-                    <div class="meta">
-                        <span>📅 2025-02-18</span>
-                        <span>✍️ 전문가 에디터</span>
-                        <span>📂 가양 셔츠룸 모음</span>
-                    </div>
-                </header>
+    <section class="t-card-nvvp">
+      <h1>인원 규모에 맞는 공간 선택법</h1>
+      <p>먼저 가장 기본적인 요소는 몇 명이 이용할지입니다. 2~3명 정도 소규모 모임이라면 ‘프라이빗 룸’ 혹은 ‘소형 라운지’를 찾아보세요. 이때는 방음 설비와 좌석 배치가 핵심이 됩니다. 방음이 약하면 대화가 새어나가서 분위기가 흐려질 수 있기 때문이죠.</p>
+      <p>반면 5명 이상 팀 단위 모임이라면 ‘대형 룸’ 혹은 ‘멀티 스테이션’ 옵션을 고려해야 합니다. 충분한 전원 콘센트와 넓은 테이블이 있는지, 에어컨·난방이 독립 제어 가능한지 확인하면 좋습니다. 이런 큰 공간은 사전 예약이 필수이니, 가능한 날짜와 시간대를 미리 체크해 두는 것이 좋습니다.</p>
+    </section>
 
-                <p><strong>가양 셔츠룸 모음</strong> 시장은 최근 3년간 꾸준히 성장하며, 2025년 현재 약 47개 업소가 운영 중입니다. 하지만 모든 업소가 동일한 서비스 퀄리티를 제공하는 것은 아닙니다. 본 가이드는 실제 방문 데이터 1,200건, 고객 리뷰 3,500건, 업소 등록 정보를 종합 분석하여 최적의 선택 기준을 제시합니다.</p>
+    <section class="t-card-nvvp">
+      <h1>시간대·목적에 따라 적합한 셔츠룸 찾기</h1>
+      <p>‘새벽 작업’이 필요한 경우와 ‘주말 파티’가 필요한 경우는 전혀 다른 요구사항을 가집니다. 새벽 작업을 위해서는 24시간 운영 여부와 주차 가능 공간을 우선 확인하세요. 특히 보안 시스템이 잘 갖춰져 있으면 안심하고 늦은 시간에도 이용할 수 있습니다.</p>
+      <p>주말 파티나 이벤트를 계획한다면 ‘음향 설비’와 ‘조명 옵션’이 중요한 포인트가 됩니다. 일부 셔츠룸은 DJ 부스나 무대 설치가 가능한 곳도 있으니, 미리 사진과 리뷰를 검토하고 운영자에게 추가 가능한 옵션을 물어보세요. 또한, 주말 예약 압박이 크기 때문에 최소 2주 전에는 예약을 확정하는 것이 안전합니다.</p>
+    </section>
 
-                <h2>데이터로 보는 가양 셔츠룸 모음 트렌드</h2>
-                <p>2024년 하반기 대비 2025년 1분기 방문자 수는 전년 동기 대비 23% 증가했습니다. 특히 주말(금요일~일요일) 방문 비중이 68%로 집중되었으며, 평균 체류 시간은 2시간 15분으로 나타났습니다. 고객 만족도 조사에서 가장 중요한 요소는 <strong>서비스 응대</strong>(41%), <strong>시설 청결</strong>(33%), <strong>가격 적정성</strong>(26%) 순이었습니다.</p>
+    <section class="t-card-nvvp">
+      <h1>방문 전 체크리스트</h1>
+      <p>실제 현장을 방문하기 전에는 다음 5가지를 점검해 보세요.</p>
+      <ol>
+        <li>위치와 교통편: 지하철역·버스 정류장과의 거리</li>
+        <li>전기·인터넷 환경: 전원 콘센트 개수와 와이파이 속도</li>
+        <li>청결 및 위생: 바닥·침대·화장실 청소 상태</li>
+        <li>부대시설: 커피 머신·냉장고·프린터 유무</li>
+        <li>가격·결제 방식: 시간당 요금, 최저 이용 시간, 현금·카드·모바일 결제 가능 여부</li>
+      </ol>
+      <p>이 리스트를 메모해두면 현장 방문 시 빠르게 판단할 수 있어, 시간과 비용을 절약하는 데 큰 도움이 됩니다.</p>
+    </section>
 
-                <blockquote>
-                    “가양 셔츠룸 모음 중에서도 객실 내 음향 시스템, 마사지 침대, 프라이빗한 동선을 갖춘 업소가 재방문율 73%를 기록했습니다.” — 업계 관계자 인터뷰
-                </blockquote>
+    <section class="t-card-nvvp">
+      <h1>FAQ</h1>
+      <h2>셔츠룸 예약은 어떻게 하나요?</h2>
+      <p>대부분의 셔츠룸은 온라인 예약 시스템을 운영하고 있습니다. 홈페이지 혹은 전용 애플리케이션에서 날짜와 시간을 선택하고, 인원 수와 이용 목적을 입력하면 바로 예약이 완료됩니다. 전화 예약이 가능한 곳도 있으니, 급하게 예약이 필요할 경우 전화 문의를 해보세요.</p>
+      <h2>취소 및 환불 정책은 어떻게 되나요?</h2>
+      <p>일반적으로 24시간 전까지는 전액 환불이 가능하고, 그 이후엔 사용된 시간에 비례해 차감하는 방식이 많습니다. 일부 고가 옵션에서는 환불이 불가할 수도 있으니, 예약 전 반드시 운영 정책을 확인하시기 바랍니다.</p>
+      <h2>셰프나 음식 배달 서비스를 이용할 수 있나요?</h2>
+      <p>셔츠룸 자체에 주방이 없는 경우가 대부분이지만, 외부 음식 배달 서비스를 허용하는 곳도 있습니다. 배달 가능 여부와 추가 비용을 사전에 확인하고, 음식물 쓰레기 처리 규정을 숙지해 두면 원활한 이용이 가능합니다.</p>
+    </section>
+  </main>
 
-                <h3>주요 평가 지표 비교</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>지표</th>
-                            <th>상위 10% 업소</th>
-                            <th>평균 업소</th>
-                            <th>하위 10% 업소</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>서비스 만족도 (5점 만점)</td>
-                            <td>4.7</td>
-                            <td>3.9</td>
-                            <td>2.8
+  <footer class="t-card-nvvp">
+    <p>© 2026 가양 셔츠룸 블로그. 모든 권리 보유.</p>
+    <p>문의: <a href="mailto:info@gayang-shirt-trend.program-school.online">info@gayang-shirt-trend.program-school.online</a></p>
+  </footer>
 </body>
 </html>
